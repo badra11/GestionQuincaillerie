@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox styleClass="produit-root" spacing="10.0" xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.bad.gestionquincaillerie.controllers.CreditVenteController">
+
+    <stylesheets>
+        <URL value="@../styles/creditVente.css"/>
+    </stylesheets>
+
+    <padding>
+        <Insets top="20.0" bottom="20.0" left="20.0" right="20.0"/>
+    </padding>
+
+    <Label text="Gestion des Crédits Clients" styleClass="page-titre"/>
+
+    <Label text="Liste des crédits en cours et soldés" styleClass="liste-titre"/>
+    <TableView fx:id="tableCredits" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colNumCredit" text="N° Crédit" prefWidth="110.0"/>
+            <TableColumn fx:id="colClient" text="Client" prefWidth="150.0"/>
+            <TableColumn fx:id="colNumVente" text="N° Vente" prefWidth="100.0"/>
+            <TableColumn fx:id="colMontantCredit" text="Montant Crédit" prefWidth="110.0"/>
+            <TableColumn fx:id="colMontantPaye" text="Montant Payé" prefWidth="110.0"/>
+            <TableColumn fx:id="colMontantReste" text="Reste à payer" prefWidth="110.0"/>
+            <TableColumn fx:id="colStatut" text="Statut" prefWidth="100.0"/>
+            <TableColumn fx:id="colAction" text="Action" prefWidth="140.0"/>
+        </columns>
+    </TableView>
+
+</VBox>

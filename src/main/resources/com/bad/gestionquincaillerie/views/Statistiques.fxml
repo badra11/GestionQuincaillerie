@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<VBox styleClass="produit-root" spacing="10.0" xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.bad.gestionquincaillerie.controllers.StatistiquesController">
+
+    <stylesheets>
+        <URL value="@../styles/statistiques.css"/>
+    </stylesheets>
+
+    <padding>
+        <Insets top="20.0" bottom="20.0" left="20.0" right="20.0"/>
+    </padding>
+
+    <Label text="Statistiques et Rapports" styleClass="page-titre"/>
+
+    <TabPane VBox.vgrow="ALWAYS" tabClosingPolicy="UNAVAILABLE">
+
+        <!-- ===== ONGLET VENTES ===== -->
+        <Tab text="Ventes">
+            <VBox spacing="10.0">
+                <padding><Insets top="12.0" bottom="12.0" left="10.0" right="10.0"/></padding>
+
+                <HBox spacing="12.0" alignment="CENTER_LEFT">
+                    <Label text="Du"/>
+                    <DatePicker fx:id="dateDebutVentes"/>
+                    <Label text="Au"/>
+                    <DatePicker fx:id="dateFinVentes"/>
+                    <Button text="Générer" styleClass="btn-ajouter" onAction="#genererRapportVentes"/>
+                </HBox>
+
+                <BarChart fx:id="chartVentes" prefHeight="220.0">
+                    <xAxis>
+                        <CategoryAxis label="Date"/>
+                    </xAxis>
+                    <yAxis><NumberAxis label="Montant (FCFA)"/></yAxis>
+                </BarChart>
+
+                <Button text="Exporter en Excel" styleClass="btn-ajouter" onAction="#exporterVentesExcel"/>
+
+                <TableView fx:id="tableVentesRapport" prefHeight="180.0">
+                    <columns>
+                        <TableColumn fx:id="colVenteNum" text="N° Vente" prefWidth="100.0"/>
+                        <TableColumn fx:id="colVenteClient" text="Client" prefWidth="140.0"/>
+                        <TableColumn fx:id="colVenteDate" text="Date" prefWidth="130.0"/>
+                        <TableColumn fx:id="colVenteMontant" text="Montant" prefWidth="110.0"/>
+                        <TableColumn fx:id="colVenteStatut" text="Statut" prefWidth="100.0"/>
+                    </columns>
+                </TableView>
+            </VBox>
+        </Tab>
+
+        <!-- ===== ONGLET STOCK ===== -->
+        <Tab text="Stock">
+            <VBox spacing="10.0">
+                <padding><Insets top="12.0" bottom="12.0" left="10.0" right="10.0"/></padding>
+
+                <Label text="Produits en alerte de stock (quantité ≤ 10)" styleClass="liste-titre"/>
+                <TableView fx:id="tableStock" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="colStockReference" text="Référence" prefWidth="110.0"/>
+                        <TableColumn fx:id="colStockDesignation" text="Désignation" prefWidth="180.0"/>
+                        <TableColumn fx:id="colStockType" text="Type" prefWidth="120.0"/>
+                        <TableColumn fx:id="colStockQuantite" text="Quantité" prefWidth="90.0"/>
+                        <TableColumn fx:id="colStockUnite" text="Unité" prefWidth="80.0"/>
+                    </columns>
+                </TableView>
+            </VBox>
+        </Tab>
+
+        <!-- ===== ONGLET CRÉANCES ===== -->
+        <Tab text="Créances">
+            <VBox spacing="10.0">
+                <padding><Insets top="12.0" bottom="12.0" left="10.0" right="10.0"/></padding>
+
+                <Label fx:id="lblCreanceTotale" styleClass="total-label"/>
+
+                <Label text="Créances actives par client" styleClass="liste-titre"/>
+                <TableView fx:id="tableCreances" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="colCreanceNum" text="N° Crédit" prefWidth="100.0"/>
+                        <TableColumn fx:id="colCreanceClient" text="Client" prefWidth="150.0"/>
+                        <TableColumn fx:id="colCreanceVente" text="N° Vente" prefWidth="100.0"/>
+                        <TableColumn fx:id="colCreanceMontant" text="Montant Crédit" prefWidth="120.0"/>
+                        <TableColumn fx:id="colCreanceReste" text="Reste à payer" prefWidth="120.0"/>
+                    </columns>
+                </TableView>
+            </VBox>
+        </Tab>
+
+        <!-- ===== ONGLET COMMANDES ===== -->
+        <Tab text="Commandes Fournisseurs">
+            <VBox spacing="10.0">
+                <padding><Insets top="12.0" bottom="12.0" left="10.0" right="10.0"/></padding>
+
+                <HBox spacing="12.0" alignment="CENTER_LEFT">
+                    <Label text="Du"/>
+                    <DatePicker fx:id="dateDebutCommandes"/>
+                    <Label text="Au"/>
+                    <DatePicker fx:id="dateFinCommandes"/>
+                    <Button text="Générer" styleClass="btn-ajouter" onAction="#genererRapportCommandes"/>
+                </HBox>
+
+                <BarChart fx:id="chartCommandes" prefHeight="220.0">
+                    <xAxis><CategoryAxis label="Date"/></xAxis>
+                    <yAxis><NumberAxis label="Montant (FCFA)"/></yAxis>
+                </BarChart>
+
+                <TableView fx:id="tableCommandesRapport" prefHeight="180.0">
+                    <columns>
+                        <TableColumn fx:id="colCmdNum" text="N° Commande" prefWidth="110.0"/>
+                        <TableColumn fx:id="colCmdFournisseur" text="Fournisseur" prefWidth="150.0"/>
+                        <TableColumn fx:id="colCmdDate" text="Date" prefWidth="130.0"/>
+                        <TableColumn fx:id="colCmdMontant" text="Montant" prefWidth="110.0"/>
+                        <TableColumn fx:id="colCmdStatut" text="Statut" prefWidth="100.0"/>
+                    </columns>
+                </TableView>
+            </VBox>
+        </Tab>
+
+    </TabPane>
+
+</VBox>

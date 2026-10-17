@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<VBox styleClass="produit-root" spacing="15.0" xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.bad.gestionquincaillerie.controllers.AcceuilController">
+
+    <stylesheets>
+        <URL value="@../styles/acceuil.css"/>
+    </stylesheets>
+
+    <padding>
+        <Insets top="20.0" bottom="20.0" left="20.0" right="20.0"/>
+    </padding>
+
+    <Label fx:id="lblBienvenue" text="Bienvenue" styleClass="page-titre"/>
+
+    <!-- ===== SECTION 1 : Petites cartes (6 sur une ligne) ===== -->
+    <HBox spacing="12.0">
+
+        <VBox styleClass="petiteCarte" spacing="6.0" HBox.hgrow="ALWAYS">
+            <FontIcon iconLiteral="fas-box" iconSize="16" styleClass="petiteIcone"/>
+            <Label fx:id="lblTotalProduits" text="0" styleClass="petiteValeur"/>
+            <Label text="Produits en stock" styleClass="petiteLabel"/>
+        </VBox>
+
+        <VBox styleClass="petiteCarte" spacing="6.0" HBox.hgrow="ALWAYS">
+            <FontIcon iconLiteral="fas-exclamation-triangle" iconSize="16" styleClass="petiteIcone"/>
+            <Label fx:id="lblAlertesStock" text="0" styleClass="petiteValeur"/>
+            <Label text="Alertes stock bas" styleClass="petiteLabel"/>
+        </VBox>
+
+        <VBox styleClass="petiteCarte" spacing="6.0" HBox.hgrow="ALWAYS">
+            <FontIcon iconLiteral="fas-user-friends" iconSize="16" styleClass="petiteIcone"/>
+            <Label fx:id="lblTotalClients" text="0" styleClass="petiteValeur"/>
+            <Label text="Clients" styleClass="petiteLabel"/>
+        </VBox>
+
+        <VBox styleClass="petiteCarte" spacing="6.0" HBox.hgrow="ALWAYS">
+            <FontIcon iconLiteral="fas-users" iconSize="16" styleClass="petiteIcone"/>
+            <Label fx:id="lblTotalEmployes" text="0" styleClass="petiteValeur"/>
+            <Label text="Employés" styleClass="petiteLabel"/>
+        </VBox>
+
+        <VBox styleClass="petiteCarte" spacing="6.0" HBox.hgrow="ALWAYS">
+            <FontIcon iconLiteral="fas-truck" iconSize="16" styleClass="petiteIcone"/>
+            <Label fx:id="lblTotalFournisseurs" text="0" styleClass="petiteValeur"/>
+            <Label text="Fournisseurs" styleClass="petiteLabel"/>
+        </VBox>
+
+        <VBox styleClass="petiteCarte" spacing="6.0" HBox.hgrow="ALWAYS">
+            <FontIcon iconLiteral="fas-shopping-cart" iconSize="16" styleClass="petiteIcone"/>
+            <Label fx:id="lblCommandesAttente" text="0" styleClass="petiteValeur"/>
+            <Label text="Commandes en attente" styleClass="petiteLabel"/>
+        </VBox>
+
+    </HBox>
+
+    <!-- ===== SECTION 2 : Cartes moyennes (4 sur une ligne) ===== -->
+    <HBox spacing="15.0">
+
+         <VBox styleClass="carteMoyenneOrange" spacing="8.0" HBox.hgrow="ALWAYS">
+            <FontIcon iconLiteral="fas-cash-register" iconSize="20" styleClass="moyenneIcone"/>
+            <Label fx:id="lblVentesJour" text="0" styleClass="moyenneValeur"/>
+            <Label text="Ventes aujourd'hui" styleClass="moyenneLabel"/>
+        </VBox>
+        
+        <VBox styleClass="carteMoyenneBleu" spacing="8.0" HBox.hgrow="ALWAYS">
+            <FontIcon iconLiteral="fas-money-bill-wave" iconSize="20" styleClass="moyenneIcone"/>
+            <Label fx:id="lblValeurAchat" text="0" styleClass="moyenneValeur"/>
+            <Label text="Valeur d'achat du stock" styleClass="moyenneLabel"/>
+        </VBox>
+
+        <VBox styleClass="carteMoyenneVert" spacing="8.0" HBox.hgrow="ALWAYS">
+            <FontIcon iconLiteral="fas-chart-line" iconSize="20" styleClass="moyenneIcone"/>
+            <Label fx:id="lblValeurVente" text="0" styleClass="moyenneValeur"/>
+            <Label fx:id="lblBenefice" text="Bénéfice potentiel : 0" styleClass="moyenneSousLabel"/>
+            <Label text="Valeur de vente du stock" styleClass="moyenneLabel"/>
+        </VBox>
+
+        <VBox styleClass="carteMoyenneRouge" spacing="8.0" HBox.hgrow="ALWAYS">
+            <FontIcon iconLiteral="fas-file-invoice-dollar" iconSize="20" styleClass="moyenneIcone"/>
+            <Label fx:id="lblCreances" text="0" styleClass="moyenneValeur"/>
+            <Label text="Créances en cours" styleClass="moyenneLabel"/>
+        </VBox>
+
+    </HBox>
+
+    <HBox spacing="15.0" VBox.vgrow="ALWAYS">
+
+        <VBox styleClass="carteGraphique" spacing="8.0" HBox.hgrow="ALWAYS">
+            <Label text="Évolution des ventes (7 derniers jours)" styleClass="titreGraphique"/>
+            <BarChart fx:id="chartVentes7Jours" legendVisible="false" VBox.vgrow="ALWAYS">
+                <xAxis>
+                    <CategoryAxis label="Date"/>
+                </xAxis>
+                <yAxis>
+                    <NumberAxis label="Montant (FCFA)"/>
+                </yAxis>
+            </BarChart>
+        </VBox>
+
+        <VBox styleClass="carteGraphique" spacing="8.0" HBox.hgrow="ALWAYS">
+            <Label text="Répartition du stock par type" styleClass="titreGraphique"/>
+            <PieChart fx:id="chartStockParType" legendVisible="true" VBox.vgrow="ALWAYS"/>
+        </VBox>
+
+    </HBox>
+
+</VBox>

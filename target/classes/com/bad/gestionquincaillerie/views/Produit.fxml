@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<VBox spacing="10.0" styleClass="produit-root" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bad.gestionquincaillerie.controllers.ProduitController">
+
+    <stylesheets>
+        <URL value="@../styles/produit.css" />
+    </stylesheets>
+
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+
+    <Label styleClass="page-titre" text="Gestion des Produits" />
+
+    <!-- ===== FORMULAIRE (partie du haut) ===== -->
+    <VBox spacing="12.0" styleClass="form-card">
+        <Label maxWidth="Infinity" styleClass="form-titre" text="Inserer un nouveau produit" />
+
+        <GridPane hgap="15.0" vgap="12.0">
+            <columnConstraints>
+                <ColumnConstraints minWidth="110.0" />
+                <ColumnConstraints hgrow="ALWAYS" percentWidth="35.0" />
+                <ColumnConstraints minWidth="110.0" />
+                <ColumnConstraints hgrow="ALWAYS" percentWidth="35.0" />
+            </columnConstraints>
+
+            <Label text="Désignation" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+            <TextField fx:id="txtDesignation" promptText="Ex: Marteau" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+            <Label text="Marque" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+            <TextField fx:id="txtMarque" promptText="Ex: Stanley" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+
+            <Label text="Type de produit" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+            <ComboBox fx:id="cbType" maxWidth="Infinity" promptText="Choisir un type" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+            <Label text="Emplacement" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <ComboBox fx:id="cbEmplacement" maxWidth="Infinity" promptText="Choisir un emplacement" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+
+            <Label text="Unité" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+            <ComboBox fx:id="cbUnite" maxWidth="Infinity" promptText="Choisir une unité" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+            <Label text="Prix d'achat" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <TextField fx:id="txtPrixAchat" promptText="Ex: 2500" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+
+            <Label text="Prix de vente" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+            <TextField fx:id="txtPrixVente" promptText="Ex: 3000" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+         <rowConstraints>
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+         </rowConstraints>
+        </GridPane>
+
+        <HBox spacing="10.0">
+            <Button fx:id="btnAjouter" onAction="#ajouterProduit" styleClass="btn-ajouter">
+                <graphic><FontIcon iconLiteral="fas-plus" iconSize="13" styleClass="btn-icon" /></graphic>
+                <text>Ajouter le produit</text>
+            </Button>
+            <Button fx:id="btnAnnuler" managed="false" onAction="#annulerProduit" styleClass="btn-annuler" visible="false">
+                <graphic><FontIcon iconLiteral="fas-times" iconSize="13" styleClass="btn-icon-annuler" /></graphic>
+                <text>Annuler</text>
+            </Button>
+            <Button fx:id="btnSupprimer" managed="false" onAction="#supprimerProduit" styleClass="btn-supprimer" visible="false">
+                <graphic><FontIcon iconLiteral="fas-trash" iconSize="13" styleClass="btn-icon-supprimer" /></graphic>
+                <text>Supprimer</text>
+            </Button>
+        </HBox>
+        <Label fx:id="lblMessage" styleClass="message-label" />
+    </VBox>
+
+    <!-- ===== LISTE (partie du bas, plus grande) ===== -->
+    <Label styleClass="liste-titre" text="Liste des produits" />
+    <HBox alignment="CENTER_LEFT" spacing="12.0">
+        <ComboBox fx:id="cbFiltreType" maxWidth="180.0" promptText="Filtrer par type" />
+        <ComboBox fx:id="cbFiltreUnite" maxWidth="150.0" promptText="Filtrer par unité" />
+        <TextField fx:id="txtRecherche" prefHeight="30.0" prefWidth="597.0" promptText="Rechercher (désignation, marque, référence...)" HBox.hgrow="ALWAYS" />
+        <Button fx:id="btnReinitialiserFiltres" onAction="#reinitialiserFiltres" styleClass="btn-annuler" text="Réinitialiser" />
+    </HBox>
+    <TableView fx:id="tableProduits" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colId" prefWidth="50.0" text="ID" />
+            <TableColumn fx:id="colReference" prefWidth="110.0" text="Référence" />
+            <TableColumn fx:id="colDesignation" prefWidth="140.0" text="Désignation" />
+            <TableColumn fx:id="colMarque" prefWidth="100.0" text="Marque" />
+            <TableColumn fx:id="colType" prefWidth="110.0" text="Type" />
+            <TableColumn fx:id="colEmplacement" prefWidth="110.0" text="Emplacement" />
+            <TableColumn fx:id="colPrixAchat" prefWidth="90.0" text="Prix Achat" />
+            <TableColumn fx:id="colPrixVente" prefWidth="90.0" text="Prix Vente" />
+            <TableColumn fx:id="colQuantite" prefWidth="80.0" text="Quantité" />
+            <TableColumn fx:id="colAlerte" prefWidth="90.0" text="Alerte Stock" />
+            <TableColumn fx:id="colUnite" prefWidth="80.0" text="Unité" />
+        </columns>
+    </TableView>
+
+</VBox>

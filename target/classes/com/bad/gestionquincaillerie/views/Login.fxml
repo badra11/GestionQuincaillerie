@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<StackPane styleClass="fond" xmlns="http://javafx.com/javafx"
+           xmlns:fx="http://javafx.com/fxml"
+           fx:controller="com.bad.gestionquincaillerie.controllers.LoginController">
+
+    <stylesheets>
+        <URL value="@../styles/login.css"/>
+    </stylesheets>
+
+    <VBox alignment="CENTER" spacing="0.0" styleClass="carte-login" maxWidth="380.0" maxHeight="480.0">
+
+        <!-- ===== Bandeau supérieur coloré ===== -->
+        <VBox styleClass="bandeau-haut" alignment="CENTER" spacing="10.0">
+            <HBox styleClass="cercle-logo" alignment="CENTER">
+                <FontIcon iconLiteral="fas-store" iconSize="26" styleClass="icone-logo"/>
+            </HBox>
+            <Label text="QUINCAILLERIE" styleClass="titre-app"/>
+            <Label text="Système de gestion intégré" styleClass="sous-titre-app"/>
+        </VBox>
+
+        <!-- ===== Formulaire ===== -->
+        <VBox alignment="CENTER" spacing="16.0" styleClass="zone-formulaire">
+            <padding>
+                <Insets top="30.0" bottom="30.0" left="35.0" right="35.0"/>
+            </padding>
+
+            <Label text="Connexion" styleClass="titre-login"/>
+
+            <HBox styleClass="champ-avec-icone" alignment="CENTER_LEFT">
+                <FontIcon iconLiteral="fas-user" iconSize="14" styleClass="icone-champ"/>
+                <TextField fx:id="txtUtilisateur" promptText="Nom d'utilisateur" styleClass="champ-transparent" HBox.hgrow="ALWAYS"/>
+            </HBox>
+
+            <HBox styleClass="champ-avec-icone" alignment="CENTER_LEFT">
+                <FontIcon iconLiteral="fas-lock" iconSize="14" styleClass="icone-champ"/>
+                <PasswordField fx:id="txtMotDePasse" promptText="Mot de passe" styleClass="champ-transparent" HBox.hgrow="ALWAYS"/>
+            </HBox>
+
+            <Button fx:id="btnConnexion" text="Se connecter" styleClass="btn-connexion" onAction="#handleConnexion" maxWidth="Infinity"/>
+
+            <Label fx:id="lblMessage" styleClass="message-label"/>
+
+        </VBox>
+
+    </VBox>
+
+</StackPane>

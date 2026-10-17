@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<VBox styleClass="produit-root" spacing="15.0" xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.bad.gestionquincaillerie.controllers.ParametresController">
+
+    <stylesheets>
+        <URL value="@../styles/parametres.css"/>
+    </stylesheets>
+
+    <padding>
+        <Insets top="20.0" bottom="20.0" left="20.0" right="20.0"/>
+    </padding>
+
+    <Label text="Paramètres" styleClass="page-titre"/>
+
+    <VBox styleClass="form-card" spacing="12.0">
+        <Label text="Sauvegarde de la base de données" styleClass="form-titre" maxWidth="Infinity"/>
+        <Label text="Génère un fichier .sql contenant toutes vos données actuelles." styleClass="unite-label" wrapText="true"/>
+
+        <Button fx:id="btnSauvegarder" styleClass="btn-ajouter" onAction="#lancerSauvegarde">
+            <graphic><FontIcon iconLiteral="fas-database" iconSize="13" styleClass="btn-icon"/></graphic>
+            <text>Sauvegarder maintenant</text>
+        </Button>
+        <Label fx:id="lblMessage" styleClass="message-label"/>
+    </VBox>
+
+</VBox>

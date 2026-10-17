@@ -1,0 +1,155 @@
+/* ===== Fond général ===== */
+.dashboard-root {
+    -fx-background-color: #f2f4f6;
+}
+
+/* ===== Sidebar ===== */
+.sidebar-scroll {
+    -fx-background-color: #12181f;
+    -fx-background: #12181f;
+}
+
+.sidebar {
+    -fx-background-color: #12181f;
+}
+
+.sidebar-titre {
+    -fx-font-size: 21px;
+    -fx-font-weight: 800;
+    -fx-text-fill: #ffffff;
+    -fx-padding: 0 0 5px 0;
+}
+
+.sidebar-souscategorie {
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #f39c12;
+    -fx-padding: 12px 0 4px 4px;
+}
+
+.sidebar-separator {
+    -fx-padding: 6px 0;
+}
+
+.sidebar-btn {
+    -fx-background-color: transparent;
+    -fx-text-fill: #ecf0f1;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 13px 12px;
+    -fx-background-radius: 8px;
+    -fx-cursor: hand;
+}
+
+.sidebar-btn:hover {
+    -fx-background-color: #1f6fb2;
+    -fx-text-fill: white;
+}
+
+.sidebar-btn:pressed {
+    -fx-background-color: #e67e22;
+}
+
+.sidebar-btn-logout {
+    -fx-background-color: transparent;
+    -fx-text-fill: #e67e22;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 13px 14px;
+    -fx-background-radius: 8px;
+    -fx-cursor: hand;
+}
+
+.sidebar-btn-logout:hover {
+    -fx-background-color: #e67e22;
+    -fx-text-fill: white;
+}
+
+.sidebar-icon {
+    -fx-icon-color: #ecf0f1;
+}
+
+.sidebar-btn:hover .sidebar-icon {
+    -fx-icon-color: white;
+}
+
+.sidebar-icon-logout {
+    -fx-icon-color: #e67e22;
+}
+
+.sidebar-btn-logout:hover .sidebar-icon-logout {
+    -fx-icon-color: white;
+}
+
+.sidebar-btn, .sidebar-btn-logout {
+    -fx-graphic-text-gap: 12px;
+}
+
+/* ===== Barre du haut ===== */
+.topbar {
+    -fx-background-color: #12181f;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 6, 0, 0, 2);
+}
+
+.topbar-titre {
+    -fx-font-size: 16px;
+    -fx-font-weight: 800;
+    -fx-text-fill: #ffffff;
+}
+
+.topbar-description {
+    -fx-font-size: 12px;
+    -fx-text-fill: #a9b4bd;
+    -fx-text-alignment: center;
+}
+
+.topbar-role {
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-background-color: #1f6fb2;
+    -fx-padding: 6px 14px;
+    -fx-background-radius: 14px;
+}
+
+/* ===== Contenu central ===== */
+.contenu-central {
+    -fx-background-color: #f2f4f6;
+}
+
+.contenu-placeholder {
+    -fx-font-size: 17px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #34495e;
+}
+
+.sidebar-btn-active {
+    -fx-background-color: #1f6fb2;
+    -fx-text-fill: white;
+}
+
+.sidebar-btn-active .sidebar-icon {
+    -fx-icon-color: white;
+}
+
+.avatar-cercle {
+    -fx-background-color: #1f6fb2;
+    -fx-background-radius: 50%;
+    -fx-min-width: 42px;
+    -fx-min-height: 42px;
+    -fx-max-width: 42px;
+    -fx-max-height: 42px;
+}
+
+.avatar-initiales {
+    -fx-text-fill: white;
+    -fx-font-size: 15px;
+    -fx-font-weight: 800;
+}
+
+.username-label {
+    -fx-font-size: 11px;
+    -fx-text-fill: #a9b4bd;
+}

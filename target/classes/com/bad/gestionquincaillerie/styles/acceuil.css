@@ -1,0 +1,254 @@
+.produit-root {
+    -fx-background-color: #f2f4f6;
+}
+
+.page-titre {
+    -fx-font-size: 22px;
+    -fx-font-weight: 800;
+    -fx-text-fill: #12181f;
+}
+
+/* ===== Cartes : fond blanc, bordure colorée à gauche ===== */
+.carteProduits {
+    -fx-background-color: white;
+    -fx-background-radius: 10px;
+    -fx-padding: 18px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 6, 0, 0, 2);
+    -fx-border-color: transparent transparent transparent #1f6fb2;
+    -fx-border-width: 0 0 0 5px;
+    -fx-border-radius: 10px;
+}
+
+.carteAlertes {
+    -fx-background-color: white;
+    -fx-background-radius: 10px;
+    -fx-padding: 18px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 6, 0, 0, 2);
+    -fx-border-color: transparent transparent transparent #e67e22;
+    -fx-border-width: 0 0 0 5px;
+    -fx-border-radius: 10px;
+}
+
+.carteVentes {
+    -fx-background-color: white;
+    -fx-background-radius: 10px;
+    -fx-padding: 18px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 6, 0, 0, 2);
+    -fx-border-color: transparent transparent transparent #27ae60;
+    -fx-border-width: 0 0 0 5px;
+    -fx-border-radius: 10px;
+}
+
+.carteCreances {
+    -fx-background-color: white;
+    -fx-background-radius: 10px;
+    -fx-padding: 18px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 6, 0, 0, 2);
+    -fx-border-color: transparent transparent transparent #e74c3c;
+    -fx-border-width: 0 0 0 5px;
+    -fx-border-radius: 10px;
+}
+
+.carteEmployes {
+    -fx-background-color: white;
+    -fx-background-radius: 10px;
+    -fx-padding: 18px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 6, 0, 0, 2);
+    -fx-border-color: transparent transparent transparent #12181f;
+    -fx-border-width: 0 0 0 5px;
+    -fx-border-radius: 10px;
+}
+
+.carteClients {
+    -fx-background-color: white;
+    -fx-background-radius: 10px;
+    -fx-padding: 18px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 6, 0, 0, 2);
+    -fx-border-color: transparent transparent transparent #1f6fb2;
+    -fx-border-width: 0 0 0 5px;
+    -fx-border-radius: 10px;
+}
+
+.carteFournisseurs {
+    -fx-background-color: white;
+    -fx-background-radius: 10px;
+    -fx-padding: 18px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 6, 0, 0, 2);
+    -fx-border-color: transparent transparent transparent #e67e22;
+    -fx-border-width: 0 0 0 5px;
+    -fx-border-radius: 10px;
+}
+
+.carteCommandes {
+    -fx-background-color: white;
+    -fx-background-radius: 10px;
+    -fx-padding: 18px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 6, 0, 0, 2);
+    -fx-border-color: transparent transparent transparent #27ae60;
+    -fx-border-width: 0 0 0 5px;
+    -fx-border-radius: 10px;
+}
+
+/* ===== Cercles colorés autour des icônes ===== */
+.cercleProduits, .cercleClients {
+    -fx-background-color: #1f6fb2;
+    -fx-background-radius: 50%;
+    -fx-min-width: 42px;
+    -fx-min-height: 42px;
+    -fx-max-width: 42px;
+    -fx-max-height: 42px;
+}
+
+.cercleAlertes, .cercleFournisseurs {
+    -fx-background-color: #e67e22;
+    -fx-background-radius: 50%;
+    -fx-min-width: 42px;
+    -fx-min-height: 42px;
+    -fx-max-width: 42px;
+    -fx-max-height: 42px;
+}
+
+.cercleVentes, .cercleCommandes {
+    -fx-background-color: #27ae60;
+    -fx-background-radius: 50%;
+    -fx-min-width: 42px;
+    -fx-min-height: 42px;
+    -fx-max-width: 42px;
+    -fx-max-height: 42px;
+}
+
+.cercleCreances {
+    -fx-background-color: #e74c3c;
+    -fx-background-radius: 50%;
+    -fx-min-width: 42px;
+    -fx-min-height: 42px;
+    -fx-max-width: 42px;
+    -fx-max-height: 42px;
+}
+
+.cercleEmployes {
+    -fx-background-color: #12181f;
+    -fx-background-radius: 50%;
+    -fx-min-width: 42px;
+    -fx-min-height: 42px;
+    -fx-max-width: 42px;
+    -fx-max-height: 42px;
+}
+
+.iconeCarteBlanche {
+    -fx-icon-color: white;
+}
+
+/* ===== Textes ===== */
+.valeurCarte {
+    -fx-font-size: 26px;
+    -fx-font-weight: 800;
+    -fx-text-fill: #12181f;
+}
+
+.labelCarte {
+    -fx-font-size: 12px;
+    -fx-text-fill: #7f8c8d;
+}
+
+/* ===== Petites cartes ===== */
+.petiteCarte {
+    -fx-background-color: white;
+    -fx-background-radius: 8px;
+    -fx-padding: 12px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.06), 4, 0, 0, 1);
+    -fx-alignment: CENTER_LEFT;
+}
+
+.petiteIcone {
+    -fx-icon-color: #1f6fb2;
+}
+
+.petiteValeur {
+    -fx-font-size: 18px;
+    -fx-font-weight: 800;
+    -fx-text-fill: #12181f;
+}
+
+.petiteLabel {
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #7f8c8d;
+}
+
+/* ===== Cartes moyennes ===== */
+
+/* ===== Cartes moyennes : chacune a SA PROPRE classe complète ===== */
+.carteMoyenneBleu {
+    -fx-background-color: #1f6fb2;
+    -fx-background-radius: 12px;
+    -fx-padding: 18px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 6, 0, 0, 2);
+    -fx-alignment: CENTER_LEFT;
+}
+
+.carteMoyenneVert {
+    -fx-background-color: #27ae60;
+    -fx-background-radius: 12px;
+    -fx-padding: 18px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 6, 0, 0, 2);
+    -fx-alignment: CENTER_LEFT;
+}
+
+.carteMoyenneRouge {
+    -fx-background-color: #e74c3c;
+    -fx-background-radius: 12px;
+    -fx-padding: 18px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 6, 0, 0, 2);
+    -fx-alignment: CENTER_LEFT;
+}
+
+.carteMoyenneOrange {
+    -fx-background-color: #e67e22;
+    -fx-background-radius: 12px;
+    -fx-padding: 18px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 6, 0, 0, 2);
+    -fx-alignment: CENTER_LEFT;
+}
+
+
+.moyenneIcone {
+    -fx-icon-color: white;
+}
+
+.moyenneValeur {
+    -fx-font-size: 20px;
+    -fx-font-weight: 800;
+    -fx-text-fill: white;
+}
+
+.moyenneSousLabel {
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-text-fill: rgba(255,255,255,0.95);
+}
+
+.moyenneLabel {
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-text-fill: rgba(255,255,255,0.8);
+}
+
+
+
+.carteGraphique {
+    -fx-background-color: white;
+    -fx-background-radius: 10px;
+    -fx-padding: 15px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 6, 0, 0, 2);
+}
+
+.titreGraphique {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #12181f;
+}
+
+.chart-bar {
+    -fx-bar-fill: #1f6fb2;
+}

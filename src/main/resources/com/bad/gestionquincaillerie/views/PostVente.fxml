@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<VBox styleClass="produit-root" spacing="12.0" xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.bad.gestionquincaillerie.controllers.PostVenteController">
+
+    <stylesheets>
+        <URL value="@../styles/vente.css"/>
+    </stylesheets>
+
+    <padding>
+        <Insets top="20.0" bottom="20.0" left="20.0" right="20.0"/>
+    </padding>
+
+    <Label fx:id="lblTitre" text="Vente enregistrée" styleClass="page-titre"/>
+
+    <Label fx:id="lblStatutCreance" styleClass="creance-label"/>
+
+    <Label text="Produits vendus" styleClass="liste-titre"/>
+    <TableView fx:id="tableLignesVente" prefHeight="160.0">
+        <columns>
+            <TableColumn fx:id="colProduit" text="Produit" prefWidth="200.0"/>
+            <TableColumn fx:id="colQuantite" text="Quantité" prefWidth="100.0"/>
+            <TableColumn fx:id="colPrixUnitaire" text="Prix Unitaire" prefWidth="120.0"/>
+            <TableColumn fx:id="colTotal" text="Total" prefWidth="120.0"/>
+        </columns>
+    </TableView>
+
+    <VBox styleClass="form-card" spacing="10.0">
+        <Label text="Livraison à domicile (facultatif)" styleClass="form-titre" maxWidth="Infinity"/>
+
+        <GridPane hgap="15.0" vgap="10.0">
+            <columnConstraints>
+                <ColumnConstraints minWidth="110.0" maxWidth="130.0"/>
+                <ColumnConstraints hgrow="ALWAYS" percentWidth="35.0"/>
+                <ColumnConstraints minWidth="110.0" maxWidth="130.0"/>
+                <ColumnConstraints hgrow="ALWAYS" percentWidth="35.0"/>
+            </columnConstraints>
+
+            <Label text="Adresse livraison" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <TextField fx:id="txtAdresseLivraison" promptText="Ex: Rue 123, Bamako" maxWidth="Infinity"
+                       GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+            <Label text="Véhicule livraison" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
+            <TextField fx:id="txtVehiculeLivraison" promptText="Ex: Moto Yamaha" maxWidth="Infinity"
+                       GridPane.rowIndex="0" GridPane.columnIndex="3"/>
+        </GridPane>
+
+        <HBox spacing="10.0" alignment="CENTER">
+            <Button fx:id="btnFinaliser" styleClass="btn-ajouter" onAction="#finaliserVente">
+                <graphic>
+                    <FontIcon iconLiteral="fas-check-circle" iconSize="13" styleClass="btn-icon"/>
+                </graphic>
+                <text>Finaliser la vente</text>
+            </Button>
+        </HBox>
+        <Label fx:id="lblMessage" styleClass="message-label"/>
+    </VBox>
+
+</VBox>

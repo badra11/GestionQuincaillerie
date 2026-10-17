@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox styleClass="produit-root" spacing="12.0" xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.bad.gestionquincaillerie.controllers.HistoriqueClientController">
+
+    <stylesheets>
+        <URL value="@../styles/client.css"/>
+    </stylesheets>
+
+    <padding>
+        <Insets top="20.0" bottom="20.0" left="20.0" right="20.0"/>
+    </padding>
+
+    <Label fx:id="lblTitre" text="Historique des achats" styleClass="page-titre"/>
+    <Label fx:id="lblCreanceInfo" styleClass="unite-label"/>
+
+    <TableView fx:id="tableHistorique" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colNumVente" text="N° Vente" prefWidth="110.0"/>
+            <TableColumn fx:id="colDate" text="Date" prefWidth="150.0"/>
+            <TableColumn fx:id="colMontant" text="Montant" prefWidth="120.0"/>
+            <TableColumn fx:id="colStatut" text="Statut Paiement" prefWidth="130.0"/>
+        </columns>
+    </TableView>
+
+</VBox>

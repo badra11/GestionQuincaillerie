@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<VBox styleClass="produit-root" spacing="10.0" xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.bad.gestionquincaillerie.controllers.EmployeController">
+
+    <stylesheets>
+        <URL value="@../styles/employe.css"/>
+    </stylesheets>
+
+    <padding>
+        <Insets top="20.0" bottom="20.0" left="20.0" right="20.0"/>
+    </padding>
+
+    <Label text="Gestion des Employés" styleClass="page-titre"/>
+
+    <!-- ===== SECTION 1 : INFOS EMPLOYÉ ===== -->
+    <VBox styleClass="form-card" spacing="10.0">
+        <Label text="Informations de l'employé" styleClass="form-titre" maxWidth="Infinity"/>
+
+        <GridPane hgap="15.0" vgap="10.0">
+            <columnConstraints>
+                <ColumnConstraints minWidth="110.0"/>
+                <ColumnConstraints hgrow="ALWAYS" percentWidth="35.0"/>
+                <ColumnConstraints minWidth="110.0"/>
+                <ColumnConstraints hgrow="ALWAYS" percentWidth="35.0"/>
+            </columnConstraints>
+
+            <Label text="Nom" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <TextField fx:id="txtNom" promptText="Ex: Traoré" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+            <Label text="Prénom" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
+            <TextField fx:id="txtPrenom" promptText="Ex: Amadou" GridPane.rowIndex="0" GridPane.columnIndex="3"/>
+
+            <Label text="Téléphone" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+            <TextField fx:id="txtTelephone" promptText="Ex: 76 00 00 00" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+            <Label text="Rôle" GridPane.rowIndex="1" GridPane.columnIndex="2"/>
+            <ComboBox fx:id="cbRole" promptText="Choisir un rôle" maxWidth="Infinity"
+                      GridPane.rowIndex="1" GridPane.columnIndex="3"/>
+
+            <Label text="Date d'embauche" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+            <DatePicker fx:id="dateEmbauche" maxWidth="Infinity" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+            <Label text="Salaire" GridPane.rowIndex="2" GridPane.columnIndex="2"/>
+            <TextField fx:id="txtSalaire" promptText="Ex: 150000" GridPane.rowIndex="2" GridPane.columnIndex="3"/>
+        </GridPane>
+    </VBox>
+
+    <!-- ===== SECTION 2 : INFOS UTILISATEUR (visible seulement si role = admin/user) ===== -->
+    <VBox fx:id="cardUtilisateur" styleClass="form-card" spacing="10.0" visible="false" managed="false">
+        <Label text="Informations utilisateur (accès application)" styleClass="form-titre" maxWidth="Infinity"/>
+
+        <GridPane hgap="15.0" vgap="10.0">
+            <columnConstraints>
+                <ColumnConstraints minWidth="110.0"/>
+                <ColumnConstraints hgrow="ALWAYS" percentWidth="35.0"/>
+                <ColumnConstraints minWidth="110.0"/>
+                <ColumnConstraints hgrow="ALWAYS" percentWidth="35.0"/>
+            </columnConstraints>
+
+            <Label text="Nom d'utilisateur" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <TextField fx:id="txtUsername" promptText="Ex: atraore" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+            <Label text="Mot de passe" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
+            <PasswordField fx:id="txtPassword" promptText="Mot de passe" GridPane.rowIndex="0" GridPane.columnIndex="3"/>
+        </GridPane>
+    </VBox>
+
+    <HBox spacing="10.0">
+        <Button fx:id="btnAjouter" styleClass="btn-ajouter" onAction="#ajouterEmploye">
+            <graphic><FontIcon iconLiteral="fas-plus" iconSize="13" styleClass="btn-icon"/></graphic>
+            <text>Ajouter l'employé</text>
+        </Button>
+        <Button fx:id="btnAnnuler" styleClass="btn-annuler" onAction="#annulerEmploye" visible="false" managed="false">
+            <graphic><FontIcon iconLiteral="fas-times" iconSize="13" styleClass="btn-icon-annuler"/></graphic>
+            <text>Annuler</text>
+        </Button>
+        <Button fx:id="btnSupprimer" styleClass="btn-supprimer" onAction="#supprimerEmploye" visible="false" managed="false">
+            <graphic><FontIcon iconLiteral="fas-trash" iconSize="13" styleClass="btn-icon-supprimer"/></graphic>
+            <text>Supprimer</text>
+        </Button>
+    </HBox>
+    <Label fx:id="lblMessage" styleClass="message-label"/>
+
+    <Label text="Liste des employés" styleClass="liste-titre"/>
+    <TableView fx:id="tableEmployes" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colMatricule" text="Matricule" prefWidth="150.0"/>
+            <TableColumn fx:id="colNom" text="Nom" prefWidth="110.0"/>
+            <TableColumn fx:id="colPrenom" text="Prénom" prefWidth="110.0"/>
+            <TableColumn fx:id="colTelephone" text="Téléphone" prefWidth="110.0"/>
+            <TableColumn fx:id="colRole" text="Rôle" prefWidth="90.0"/>
+            <TableColumn fx:id="colDateEmbauche" text="Date embauche" prefWidth="110.0"/>
+            <TableColumn fx:id="colSalaire" text="Salaire" prefWidth="100.0"/>
+            <TableColumn fx:id="colUsername" text="Utilisateur App" prefWidth="110.0"/>
+        </columns>
+    </TableView>
+
+</VBox>

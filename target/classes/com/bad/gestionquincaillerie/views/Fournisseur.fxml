@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<VBox styleClass="produit-root" spacing="10.0" xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.bad.gestionquincaillerie.controllers.FournisseurController">
+
+    <stylesheets>
+        <URL value="@../styles/fournisseur.css"/>
+    </stylesheets>
+
+    <padding>
+        <Insets top="20.0" bottom="20.0" left="20.0" right="20.0"/>
+    </padding>
+
+    <Label text="Gestion des Fournisseurs" styleClass="page-titre"/>
+
+    <VBox styleClass="form-card" spacing="12.0">
+        <Label text="Ajouter un fournisseur" styleClass="form-titre" maxWidth="Infinity"/>
+
+        <GridPane hgap="15.0" vgap="12.0">
+            <columnConstraints>
+                <ColumnConstraints minWidth="110.0"/>
+                <ColumnConstraints hgrow="ALWAYS" percentWidth="35.0"/>
+                <ColumnConstraints minWidth="110.0"/>
+                <ColumnConstraints hgrow="ALWAYS" percentWidth="35.0"/>
+            </columnConstraints>
+
+            <Label text="Nom société" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <TextField fx:id="txtNomSociete" promptText="Ex: Quincaillerie Import SA"
+                       GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+            <Label text="Email" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
+            <TextField fx:id="txtEmail" promptText="Ex: contact@fournisseur.com"
+                       GridPane.rowIndex="0" GridPane.columnIndex="3"/>
+
+            <Label text="Téléphone" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+            <TextField fx:id="txtTelephone" promptText="Ex: 76 00 00 00"
+                       GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+            <Label text="Adresse" GridPane.rowIndex="1" GridPane.columnIndex="2"/>
+            <TextField fx:id="txtAdresse" promptText="Ex: Bamako, Mali"
+                       GridPane.rowIndex="1" GridPane.columnIndex="3"/>
+        </GridPane>
+
+        <HBox spacing="10.0">
+            <Button fx:id="btnAjouter" styleClass="btn-ajouter" onAction="#ajouterFournisseur">
+                <graphic><FontIcon iconLiteral="fas-plus" iconSize="13" styleClass="btn-icon"/></graphic>
+                <text>Ajouter le fournisseur</text>
+            </Button>
+            <Button fx:id="btnAnnuler" styleClass="btn-annuler" onAction="#annulerFournisseur" visible="false" managed="false">
+                <graphic><FontIcon iconLiteral="fas-times" iconSize="13" styleClass="btn-icon-annuler"/></graphic>
+                <text>Annuler</text>
+            </Button>
+            <Button fx:id="btnSupprimer" styleClass="btn-supprimer" onAction="#supprimerFournisseur" visible="false" managed="false">
+                <graphic><FontIcon iconLiteral="fas-trash" iconSize="13" styleClass="btn-icon-supprimer"/></graphic>
+                <text>Supprimer</text>
+            </Button>
+        </HBox>
+        <Label fx:id="lblMessage" styleClass="message-label"/>
+    </VBox>
+
+    <Label text="Liste des fournisseurs" styleClass="liste-titre"/>
+    <TableView fx:id="tableFournisseurs" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colId" text="ID" prefWidth="50.0"/>
+            <TableColumn fx:id="colNomSociete" text="Société" prefWidth="200.0"/>
+            <TableColumn fx:id="colEmail" text="Email" prefWidth="200.0"/>
+            <TableColumn fx:id="colTelephone" text="Téléphone" prefWidth="130.0"/>
+            <TableColumn fx:id="colAdresse" text="Adresse" prefWidth="200.0"/>
+        </columns>
+    </TableView>
+
+</VBox>

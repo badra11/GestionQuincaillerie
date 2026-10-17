@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<BorderPane styleClass="dashboard-root" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bad.gestionquincaillerie.controllers.DashboardController">
+
+    <stylesheets>
+        <URL value="@../styles/dashboard.css" />
+    </stylesheets>
+
+    <!-- ===== SIDEBAR (gauche) ===== -->
+    <left>
+        <ScrollPane fitToWidth="true" hbarPolicy="NEVER" styleClass="sidebar-scroll">
+            <VBox prefWidth="240.0" spacing="8.0" styleClass="sidebar">
+                <padding>
+                    <Insets bottom="25.0" left="15.0" right="15.0" top="25.0" />
+                </padding>
+
+                <Label styleClass="sidebar-titre" text="QUINCAILLERIE" />
+                <Label styleClass="sidebar-souscategorie" text="MENU PRINCIPAL" />
+                
+                <Button fx:id="btnAccueil" maxWidth="Infinity" onAction="#showAccueil" styleClass="sidebar-btn" text="Acceuil">
+                    <graphic>
+                        <FontIcon iconLiteral="fas-home" iconSize="16" styleClass="sidebar-icon" />
+                    </graphic>
+                </Button>
+                <Button fx:id="btnProduits" maxWidth="Infinity" onAction="#showProduits" styleClass="sidebar-btn" text="Produits / Stock">
+                    <graphic>
+                        <FontIcon iconLiteral="fas-box" iconSize="16" styleClass="sidebar-icon" />
+                    </graphic>
+                </Button>
+                <Button fx:id="btnEmployes" maxWidth="Infinity" onAction="#showEmployes" styleClass="sidebar-btn" text="Employés">
+                    <graphic>
+                        <FontIcon iconLiteral="fas-users" iconSize="16" styleClass="sidebar-icon" />
+                    </graphic>
+                </Button>
+                <Button fx:id="btnVentes" maxWidth="Infinity" onAction="#showVentes" styleClass="sidebar-btn" text="Ventes/ Factures">
+                    <graphic>
+                        <FontIcon iconLiteral="fas-file-invoice-dollar" iconSize="16" styleClass="sidebar-icon" />
+                    </graphic>
+                </Button>
+                <Button fx:id="btnClients" maxWidth="Infinity" onAction="#showClients" styleClass="sidebar-btn" text="Clients">
+                    <graphic>
+                        <FontIcon iconLiteral="fas-user-friends" iconSize="16" styleClass="sidebar-icon" />
+                    </graphic>
+                </Button>
+                <Button fx:id="btnFournisseurs" maxWidth="Infinity" onAction="#showFournisseurs" styleClass="sidebar-btn" text="Fournisseurs">
+                    <graphic>
+                        <FontIcon iconLiteral="fas-truck" iconSize="16" styleClass="sidebar-icon" />
+                    </graphic>
+                </Button>
+                <Button fx:id="btnStatistiques" maxWidth="Infinity" onAction="#showStatistiques" styleClass="sidebar-btn" text="Statistiques / Rapports">
+                    <graphic>
+                        <FontIcon iconLiteral="fas-chart-bar" iconSize="16" styleClass="sidebar-icon" />
+                    </graphic>
+                </Button>
+
+                <Separator styleClass="sidebar-separator" />
+                <Label styleClass="sidebar-souscategorie" text="GESTION AVANCÉE" />
+
+                <Button fx:id="btnCommandes" maxWidth="Infinity" onAction="#showCommandes" styleClass="sidebar-btn" text="Commandes">
+                    <graphic>
+                        <FontIcon iconLiteral="fas-shopping-cart" iconSize="16" styleClass="sidebar-icon" />
+                    </graphic>
+                </Button>
+                <Button fx:id="btnCreditVente" maxWidth="Infinity" onAction="#showCreditVente" styleClass="sidebar-btn" text="Crédit Vente">
+                    <graphic>
+                        <FontIcon iconLiteral="fas-credit-card" iconSize="16" styleClass="sidebar-icon" />
+                    </graphic>
+                </Button>
+                <Button fx:id="btnStructureProduit" maxWidth="Infinity" onAction="#showStructureProduit" styleClass="sidebar-btn" text="Stucture Produits">
+                    <graphic>
+                        <FontIcon iconLiteral="fas-sitemap" iconSize="16" styleClass="sidebar-icon" />
+                    </graphic>
+                </Button>
+                <Button fx:id="btnParametre" layoutX="25.0" layoutY="665.0" maxWidth="Infinity" onAction="#showParametre" styleClass="sidebar-btn" text="Paramètres">
+                    <graphic>
+                        <FontIcon iconLiteral="fas-cog" iconSize="16" styleClass="sidebar-icon" />
+                    </graphic>
+                </Button>
+                <Button fx:id="btnJournal" maxWidth="Infinity" onAction="#showJournal" styleClass="sidebar-btn" text="Journal d'activité">
+                    <graphic>
+                        <FontIcon iconLiteral="fas-history" iconSize="16" styleClass="sidebar-icon" />
+                    </graphic>
+                </Button>
+              
+
+                <Region VBox.vgrow="ALWAYS" />
+
+                <Button maxWidth="Infinity" onAction="#handleDeconnexion" styleClass="sidebar-btn-logout" text="Déconnexion">
+                    <graphic>
+                        <FontIcon iconLiteral="fas-sign-out-alt" iconSize="16" styleClass="sidebar-icon-logout" />
+                    </graphic>
+                </Button>
+            </VBox>
+        </ScrollPane>
+    </left>
+
+    <!-- ===== BARRE DU HAUT ===== -->
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="15.0" styleClass="topbar">
+            <padding>
+                <Insets bottom="15.0" left="25.0" right="25.0" top="15.0" />
+            </padding>
+
+            <HBox alignment="CENTER_LEFT" spacing="10.0">
+                <HBox fx:id="cercleAvatar" alignment="CENTER" styleClass="avatar-cercle">
+                    <Label fx:id="lblInitiales" styleClass="avatar-initiales" text="?" />
+                </HBox>
+                <VBox spacing="2.0">
+                    <Label fx:id="lblBienvenue" styleClass="topbar-titre" text="Bienvenue" />
+                    <Label fx:id="lblUsername" styleClass="username-label" text="#username" />
+                </VBox>
+            </HBox>
+
+            <Region HBox.hgrow="ALWAYS" />
+
+            <Label maxWidth="450.0" styleClass="topbar-description" text="Système de gestion de quincaillerie — stock, ventes et clients en un seul endroit" wrapText="true" />
+
+            <Region HBox.hgrow="ALWAYS" />
+
+            <Label fx:id="lblRole" styleClass="topbar-role" text="Rôle" />
+        </HBox>
+    </top>
+
+    <!-- ===== ZONE DE CONTENU CENTRAL ===== -->
+    <center>
+        <VBox fx:id="contenuCentral" alignment="CENTER" spacing="10.0" styleClass="contenu-central">
+            <Label styleClass="contenu-placeholder" text="Sélectionnez une section dans le menu" />
+        </VBox>
+    </center>
+
+</BorderPane>

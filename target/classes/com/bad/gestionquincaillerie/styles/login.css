@@ -1,0 +1,109 @@
+/* ===== Fond général ===== */
+.fond {
+    -fx-background-color: linear-gradient(to bottom right, #12181f, #1f6fb2);
+}
+
+/* ===== Carte de connexion ===== */
+.carte-login {
+    -fx-background-color: white;
+    -fx-background-radius: 16px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.35), 25, 0, 0, 10);
+}
+
+/* ===== Bandeau supérieur coloré ===== */
+.bandeau-haut {
+    -fx-background-color: #12181f;
+    -fx-background-radius: 16px 16px 0 0;
+    -fx-padding: 30px 20px 25px 20px;
+}
+
+.cercle-logo {
+    -fx-background-color: #1f6fb2;
+    -fx-background-radius: 50%;
+    -fx-min-width: 60px;
+    -fx-min-height: 60px;
+    -fx-max-width: 60px;
+    -fx-max-height: 60px;
+}
+
+.icone-logo {
+    -fx-icon-color: white;
+}
+
+.titre-app {
+    -fx-font-size: 19px;
+    -fx-font-weight: 800;
+    -fx-text-fill: white;
+}
+
+.sous-titre-app {
+    -fx-font-size: 11px;
+    -fx-text-fill: #a9b4bd;
+}
+
+/* ===== Zone du formulaire ===== */
+.zone-formulaire {
+    -fx-background-color: white;
+    -fx-background-radius: 0 0 16px 16px;
+}
+
+.titre-login {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #7f8c8d;
+    -fx-padding: 0 0 5px 0;
+}
+
+/* ===== Champs avec icône intégrée ===== */
+.champ-avec-icone {
+    -fx-background-color: #f4f6f7;
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+    -fx-border-color: #dcdcdc;
+    -fx-border-width: 1px;
+    -fx-padding: 10px 14px;
+    -fx-spacing: 10px;
+}
+
+.champ-avec-icone:hover {
+    -fx-border-color: #b0bcc4;
+}
+
+.icone-champ {
+    -fx-icon-color: #7f8c8d;
+}
+
+.champ-transparent {
+    -fx-background-color: transparent;
+    -fx-font-size: 14px;
+    -fx-padding: 0;
+}
+
+.champ-transparent:focused {
+    -fx-background-color: transparent;
+}
+
+/* ===== Bouton de connexion ===== */
+.btn-connexion {
+    -fx-background-color: #1f6fb2;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8px;
+    -fx-padding: 12px 0;
+    -fx-cursor: hand;
+}
+
+.btn-connexion:hover {
+    -fx-background-color: #e67e22;
+}
+
+.btn-connexion:pressed {
+    -fx-background-color: #c96a1a;
+}
+
+/* ===== Message d'erreur / succès ===== */
+.message-label {
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}

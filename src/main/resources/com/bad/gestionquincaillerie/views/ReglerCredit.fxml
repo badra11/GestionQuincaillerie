@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<VBox styleClass="produit-root" spacing="12.0" xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.bad.gestionquincaillerie.controllers.ReglerCreditController">
+
+    <stylesheets>
+        <URL value="@../styles/creditVente.css"/>
+    </stylesheets>
+
+    <padding>
+        <Insets top="20.0" bottom="20.0" left="20.0" right="20.0"/>
+    </padding>
+
+    <Label fx:id="lblTitre" text="Régler le crédit" styleClass="page-titre"/>
+    <Label fx:id="lblInfoCredit" styleClass="unite-label" wrapText="true"/>
+
+    <VBox styleClass="form-card" spacing="10.0">
+        <Label text="Montant versé" GridPane.rowIndex="0"/>
+        <TextField fx:id="txtMontantVerse" promptText="Ex: 10000"/>
+
+        <Button fx:id="btnConfirmer" styleClass="btn-ajouter" onAction="#confirmerReglement">
+            <graphic><FontIcon iconLiteral="fas-check" iconSize="13" styleClass="btn-icon"/></graphic>
+            <text>Confirmer le règlement</text>
+        </Button>
+        <Label fx:id="lblMessage" styleClass="message-label"/>
+    </VBox>
+
+</VBox>

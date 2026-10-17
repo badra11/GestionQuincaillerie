@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<VBox spacing="10.0" styleClass="produit-root" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bad.gestionquincaillerie.controllers.CommandeController">
+
+    <stylesheets>
+        <URL value="@../styles/commande.css" />
+    </stylesheets>
+
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+
+    <Label styleClass="page-titre" text="Gestion des Commandes" />
+
+    <TabPane tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
+
+        <!-- ===== ONGLET NOUVELLE COMMANDE ===== -->
+        <Tab text="Nouvelle Commande">
+            <VBox spacing="10.0">
+                <padding>
+                    <Insets top="12.0" bottom="12.0" left="10.0" right="10.0"/>
+                </padding>
+
+                <!-- En-tête de la commande -->
+                <VBox styleClass="form-card" spacing="8.0">
+                    <Label text="Informations de la commande" styleClass="form-titre" maxWidth="Infinity"/>
+
+                    <HBox spacing="20.0" alignment="CENTER_LEFT">
+                        <Label fx:id="lblNumCommande" styleClass="num-commande-label"/>
+                        <Region HBox.hgrow="ALWAYS"/>
+                        <Label fx:id="lblMontantTotal" styleClass="montant-total-label"/>
+                    </HBox>
+
+                    <GridPane hgap="15.0" vgap="8.0">
+                        <columnConstraints>
+                            <ColumnConstraints minWidth="110.0"/>
+                            <ColumnConstraints hgrow="ALWAYS" percentWidth="35.0"/>
+                            <ColumnConstraints minWidth="110.0"/>
+                            <ColumnConstraints hgrow="ALWAYS" percentWidth="35.0"/>
+                        </columnConstraints>
+
+                        <Label text="Fournisseur" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                        <ComboBox fx:id="cbFournisseur" promptText="Choisir un fournisseur" maxWidth="Infinity"
+                                  GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                        <Label text="Mode de paiement" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
+                        <ComboBox fx:id="cbModePayment" promptText="Choisir un mode" maxWidth="Infinity"
+                                  GridPane.rowIndex="0" GridPane.columnIndex="3"/>
+
+                        <Label text="Montant donné" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                        <TextField fx:id="txtMontantPaye" promptText="Ex: 50000"
+                                   GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                    </GridPane>
+                </VBox>
+
+                <!-- Ajout d'une ligne produit -->
+                <VBox styleClass="form-card" spacing="8.0">
+                    <Label text="Ajouter un produit à la commande" styleClass="form-titre" maxWidth="Infinity"/>
+
+                    <GridPane hgap="15.0" vgap="8.0">
+                        <columnConstraints>
+                            <ColumnConstraints minWidth="110.0"/>
+                            <ColumnConstraints hgrow="ALWAYS" percentWidth="30.0"/>
+                            <ColumnConstraints minWidth="110.0"/>
+                            <ColumnConstraints hgrow="ALWAYS" percentWidth="30.0"/>
+                        </columnConstraints>
+
+                        <Label text="Type" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                        <ComboBox fx:id="cbType" promptText="Choisir un type" maxWidth="Infinity"
+                                  GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                        <Label text="Produit" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
+                        <ComboBox fx:id="cbProduit" promptText="Choisir un produit" maxWidth="Infinity"
+                                  GridPane.rowIndex="0" GridPane.columnIndex="3"/>
+
+                        <Label text="Unité" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                        <Label fx:id="lblUnite" text="—" styleClass="unite-label"
+                               GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                        <Label text="Prix unitaire" GridPane.rowIndex="1" GridPane.columnIndex="2"/>
+                        <Label fx:id="lblPrixUnitaire" text="—" styleClass="unite-label"
+                               GridPane.rowIndex="1" GridPane.columnIndex="3"/>
+
+                        <Label text="Quantité" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                        <TextField fx:id="txtQuantiteLigne" promptText="Ex: 20"
+                                   GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+                    </GridPane>
+
+                    <Button fx:id="btnAjouterLigne" styleClass="btn-ajouter" onAction="#ajouterLigneTemporaire">
+                        <graphic>
+                            <FontIcon iconLiteral="fas-plus" iconSize="13" styleClass="btn-icon"/>
+                        </graphic>
+                        <text>Ajouter cette ligne</text>
+                    </Button>
+
+                    <TableView fx:id="tableLignesTemp" prefHeight="150.0">
+                        <columns>
+                            <TableColumn fx:id="colLigneTempProduit" text="Produit" prefWidth="200.0"/>
+                            <TableColumn fx:id="colLigneTempQuantite" text="Quantité" prefWidth="90.0"/>
+                            <TableColumn fx:id="colLigneTempPrixUnitaire" text="Prix Unitaire" prefWidth="110.0"/>
+                            <TableColumn fx:id="colLigneTempTotal" text="Total" prefWidth="110.0"/>
+                            <TableColumn fx:id="colLigneTempAction" text="Action" prefWidth="100.0"/>
+                        </columns>
+                    </TableView>
+                </VBox>
+
+                <HBox spacing="10.0">
+                    <Button fx:id="btnEnregistrerCommande" styleClass="btn-ajouter" onAction="#enregistrerCommande">
+                        <graphic>
+                            <FontIcon iconLiteral="fas-save" iconSize="13" styleClass="btn-icon"/>
+                        </graphic>
+                        <text>Enregistrer la commande</text>
+                    </Button>
+                    <Button fx:id="btnAnnulerCommande" styleClass="btn-annuler" onAction="#annulerNouvelleCommande">
+                        <graphic>
+                            <FontIcon iconLiteral="fas-times" iconSize="13" styleClass="btn-icon-annuler"/>
+                        </graphic>
+                        <text>Réinitialiser</text>
+                    </Button>
+                </HBox>
+                <Label fx:id="lblMessage" styleClass="message-label"/>
+            </VBox>
+        </Tab>
+
+        <!-- ===== ONGLET HISTORIQUE ===== -->
+        <Tab text="Historique des Commandes">
+            <VBox spacing="10.0">
+                <padding>
+                    <Insets top="12.0" bottom="12.0" left="10.0" right="10.0"/>
+                </padding>
+
+                <Label text="Toutes les commandes" styleClass="liste-titre"/>
+                <TableView fx:id="tableCommandes" prefHeight="230.0">
+                    <columns>
+                        <TableColumn fx:id="colNumCommande" text="N° Commande" prefWidth="120.0"/>
+                        <TableColumn fx:id="colFournisseur" text="Fournisseur" prefWidth="150.0"/>
+                        <TableColumn fx:id="colDateCommande" text="Date" prefWidth="130.0"/>
+                        <TableColumn fx:id="colMontantTotalCol" text="Montant Total" prefWidth="105.0"/>
+                        <TableColumn fx:id="colMontantRestantCol" text="Montant Restant" prefWidth="115.0"/>
+                        <TableColumn fx:id="colStatutPaymentCol" text="Statut Paiement" prefWidth="115.0"/>
+                        <TableColumn fx:id="colValidationCol" text="Validation" prefWidth="90.0"/>
+                    </columns>
+                </TableView>
+
+                <Label text="Détails de la commande sélectionnée" styleClass="liste-titre"/>
+                <TableView fx:id="tableDetailsLignes" prefHeight="220.0">
+                    <columns>
+                        <TableColumn fx:id="colDetailProduit" text="Produit" prefWidth="190.0"/>
+                        <TableColumn fx:id="colDetailQuantite" text="Quantité" prefWidth="90.0"/>
+                        <TableColumn fx:id="colDetailPrixUnitaire" text="Prix Unitaire" prefWidth="110.0"/>
+                        <TableColumn fx:id="colDetailTotal" text="Total" prefWidth="110.0"/>
+                        <TableColumn fx:id="colDetailStatut" text="Statut Stock" prefWidth="110.0"/>
+                        <TableColumn fx:id="colDetailAction" text="Action" prefWidth="130.0"/>
+                    </columns>
+                </TableView>
+            </VBox>
+        </Tab>
+
+    </TabPane>
+
+</VBox>

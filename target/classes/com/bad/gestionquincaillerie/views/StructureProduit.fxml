@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<VBox spacing="10.0" styleClass="structure-root" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bad.gestionquincaillerie.controllers.StructureProduitController">
+
+    <stylesheets>
+        <URL value="@../styles/structureproduit.css" />
+    </stylesheets>
+
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+
+    <Label styleClass="page-titre" text="Catégories, Types et Emplacements" />
+
+    <TabPane tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
+
+        <!-- ===== ONGLET CATEGORIES ===== -->
+        <Tab text="Catégories">
+            <VBox spacing="15.0">
+                <padding>
+                    <Insets bottom="15.0" left="10.0" right="10.0" top="15.0" />
+                </padding>
+
+                <!-- Formulaire -->
+                <VBox spacing="10.0" styleClass="form-card">
+                    <Label maxWidth="Infinity" styleClass="form-titre" text="Insérer nouveau Categorie" textFill="#f29913" />
+                    <GridPane hgap="10.0" vgap="10.0">
+                        <columnConstraints>
+                            <ColumnConstraints minWidth="120.0" />
+                            <ColumnConstraints hgrow="ALWAYS" />
+                        </columnConstraints>
+
+                        <Label text="Nom" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                        <TextField fx:id="txtNomCat" promptText="Nom de la catégorie" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+                        <Label text="Description" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                        <TextArea fx:id="txtDescCat" prefRowCount="2" promptText="Description" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <rowConstraints>
+                     <RowConstraints />
+                     <RowConstraints />
+                  </rowConstraints>
+                    </GridPane>
+                    <HBox spacing="10.0">
+                        <Button fx:id="btnAjouterCat" onAction="#ajouterCategorie" styleClass="btn-ajouter">
+                            <graphic><FontIcon iconLiteral="fas-plus" iconSize="13" styleClass="btn-icon" /></graphic>
+                            <text>Ajouter la catégorie</text>
+                        </Button>
+                        <Button fx:id="btnAnnulerCat" managed="false" onAction="#annulerCategorie" styleClass="btn-annuler" visible="false">
+                            <graphic><FontIcon iconLiteral="fas-times" iconSize="13" styleClass="btn-icon-annuler" /></graphic>
+                            <text>Annuler</text>
+                        </Button>
+                        <Button fx:id="btnSupprimerCat" managed="false" onAction="#supprimerCategorie" styleClass="btn-supprimer" visible="false">
+                            <graphic><FontIcon iconLiteral="fas-trash" iconSize="13" styleClass="btn-icon-supprimer" /></graphic>
+                            <text>Supprimer</text>
+                        </Button>
+                    </HBox>
+                    <Label fx:id="lblMessageCat" styleClass="message-label" />
+                </VBox>
+
+                <!-- Liste (plus grande) -->
+                <Label styleClass="liste-titre" text="Liste des catégories" />
+                <TableView fx:id="tableCategories" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="colIdCat" prefWidth="60.0" text="ID" />
+                        <TableColumn fx:id="colNomCat" prefWidth="200.0" text="Nom" />
+                        <TableColumn fx:id="colDescCat" prefWidth="400.0" text="Description" />
+                    </columns>
+                </TableView>
+            </VBox>
+        </Tab>
+
+        <!-- ===== ONGLET TYPES ===== -->
+        <Tab text="Types">
+            <VBox spacing="15.0">
+                <padding>
+                    <Insets bottom="15.0" left="10.0" right="10.0" top="15.0" />
+                </padding>
+
+                <VBox spacing="10.0" styleClass="form-card">
+                    <Label maxWidth="Infinity" styleClass="form-titre" text="Insérer nouveau type" textFill="#f39c12" />
+                    <GridPane hgap="10.0" vgap="10.0">
+                        <columnConstraints>
+                            <ColumnConstraints minWidth="120.0" />
+                            <ColumnConstraints hgrow="ALWAYS" />
+                        </columnConstraints>
+
+                        <Label text="Catégorie" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                        <ComboBox fx:id="cbCategoriePourType" maxWidth="Infinity" promptText="Choisir une catégorie" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+                        <Label text="Nom du type" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                        <TextField fx:id="txtNomType" promptText="Nom du type" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                        <Label text="Description" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                        <TextArea fx:id="txtDescType" prefRowCount="2" promptText="Description" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <rowConstraints>
+                     <RowConstraints />
+                     <RowConstraints />
+                     <RowConstraints />
+                  </rowConstraints>
+                    </GridPane>
+                    <HBox spacing="10.0">
+                        <Button fx:id="btnAjouterType" onAction="#ajouterType" styleClass="btn-ajouter">
+                            <graphic><FontIcon iconLiteral="fas-plus" iconSize="13" styleClass="btn-icon" /></graphic>
+                            <text>Ajouter le type</text>
+                        </Button>
+                        <Button fx:id="btnAnnulerType" managed="false" onAction="#annulerType" styleClass="btn-annuler" visible="false">
+                            <graphic><FontIcon iconLiteral="fas-times" iconSize="13" styleClass="btn-icon-annuler" /></graphic>
+                            <text>Annuler</text>
+                        </Button>
+                        <Button fx:id="btnSupprimerType" managed="false" onAction="#supprimerType" styleClass="btn-supprimer" visible="false">
+                            <graphic><FontIcon iconLiteral="fas-trash" iconSize="13" styleClass="btn-icon-supprimer" /></graphic>
+                            <text>Supprimer</text>
+                        </Button>
+                    </HBox>
+                    <Label fx:id="lblMessageType" styleClass="message-label" />
+                </VBox>
+
+                <Label styleClass="liste-titre" text="Liste des types" />
+                <TableView fx:id="tableTypes" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="colIdType" prefWidth="60.0" text="ID" />
+                        <TableColumn fx:id="colCategorieType" prefWidth="150.0" text="Catégorie" />
+                        <TableColumn fx:id="colNomType" prefWidth="200.0" text="Nom du type" />
+                        <TableColumn fx:id="colDescType" prefWidth="300.0" text="Description" />
+                    </columns>
+                </TableView>
+            </VBox>
+        </Tab>
+
+        <!-- ===== ONGLET EMPLACEMENTS ===== -->
+        <Tab text="Emplacements">
+            <VBox spacing="15.0">
+                <padding>
+                    <Insets bottom="15.0" left="10.0" right="10.0" top="15.0" />
+                </padding>
+
+                <VBox spacing="10.0" styleClass="form-card">
+                    <Label maxWidth="Infinity" styleClass="form-titre" text="Insérer nouveau emplacement" textFill="#f39c12" />
+                    <GridPane hgap="10.0" vgap="10.0">
+                        <columnConstraints>
+                            <ColumnConstraints minWidth="120.0" />
+                            <ColumnConstraints hgrow="ALWAYS" />
+                        </columnConstraints>
+
+                        <Label text="Type d'emplacement" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                        <TextField fx:id="txtTypeEmplacement" promptText="Ex: Rayon, Entrepôt, Vitrine" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+                        <Label text="Désignation" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                        <TextField fx:id="txtDesignationEmplacement" promptText="Ex: Rayon A3" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <rowConstraints>
+                     <RowConstraints />
+                     <RowConstraints />
+                  </rowConstraints>
+                    </GridPane>
+                    <HBox spacing="10.0">
+                        <Button fx:id="btnAjouterEmplacement" onAction="#ajouterEmplacement" styleClass="btn-ajouter">
+                            <graphic><FontIcon iconLiteral="fas-plus" iconSize="13" styleClass="btn-icon" /></graphic>
+                            <text>Ajouter l'emplacement</text>
+                        </Button>
+                        <Button fx:id="btnAnnulerEmplacement" managed="false" onAction="#annulerEmplacement" styleClass="btn-annuler" visible="false">
+                            <graphic><FontIcon iconLiteral="fas-times" iconSize="13" styleClass="btn-icon-annuler" /></graphic>
+                            <text>Annuler</text>
+                        </Button>
+                        <Button fx:id="btnSupprimerEmplacement" managed="false" onAction="#supprimerEmplacement" styleClass="btn-supprimer" visible="false">
+                            <graphic><FontIcon iconLiteral="fas-trash" iconSize="13" styleClass="btn-icon-supprimer" /></graphic>
+                            <text>Supprimer</text>
+                        </Button>
+                    </HBox>
+                    <Label fx:id="lblMessageEmplacement" styleClass="message-label" />
+                </VBox>
+
+                <Label styleClass="liste-titre" text="Liste des emplacements" />
+                <TableView fx:id="tableEmplacements" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="colIdEmplacement" prefWidth="60.0" text="ID" />
+                        <TableColumn fx:id="colTypeEmplacement" prefWidth="200.0" text="Type" />
+                        <TableColumn fx:id="colDesignationEmplacement" prefWidth="300.0" text="Désignation" />
+                    </columns>
+                </TableView>
+            </VBox>
+        </Tab>
+
+    </TabPane>
+
+</VBox>

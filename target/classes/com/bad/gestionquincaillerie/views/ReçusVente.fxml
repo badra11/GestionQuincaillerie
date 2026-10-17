@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<VBox styleClass="recu-root" spacing="12.0" xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.bad.gestionquincaillerie.controllers.ReçusVenteController">
+
+    <stylesheets>
+        <URL value="@../styles/vente.css"/>
+    </stylesheets>
+
+    <padding>
+        <Insets top="25.0" bottom="25.0" left="30.0" right="30.0"/>
+    </padding>
+
+    <VBox styleClass="recu-carte" spacing="8.0">
+
+        <Label text="QUINCAILLERIE" styleClass="recu-entete"/>
+        <Label text="Reçu de vente" styleClass="recu-sous-entete"/>
+
+        <Separator/>
+
+        <HBox spacing="20.0">
+            <VBox spacing="4.0">
+                <Label fx:id="lblNumRecu" styleClass="recu-info"/>
+                <Label fx:id="lblDateRecu" styleClass="recu-info"/>
+            </VBox>
+            <Region HBox.hgrow="ALWAYS"/>
+            <VBox spacing="4.0">
+                <Label fx:id="lblNumVente" styleClass="recu-info"/>
+                <Label fx:id="lblClient" styleClass="recu-info"/>
+            </VBox>
+        </HBox>
+
+        <Separator/>
+
+        <TableView fx:id="tableLignes" prefHeight="180.0">
+            <columns>
+                <TableColumn fx:id="colProduit" text="Produit" prefWidth="220.0"/>
+                <TableColumn fx:id="colQuantite" text="Quantité" prefWidth="90.0"/>
+                <TableColumn fx:id="colPrixUnitaire" text="Prix Unitaire" prefWidth="110.0"/>
+                <TableColumn fx:id="colTotal" text="Total" prefWidth="110.0"/>
+            </columns>
+        </TableView>
+
+        <Separator/>
+
+        <VBox spacing="4.0" alignment="CENTER_RIGHT">
+            <Label fx:id="lblMontantTotal" styleClass="recu-montant"/>
+            <Label fx:id="lblMontantRecu" styleClass="recu-info"/>
+            <Label fx:id="lblMontantRestant" styleClass="recu-info"/>
+        </VBox>
+
+        <Separator/>
+
+        <Label text="Merci pour votre confiance !" styleClass="recu-footer" maxWidth="Infinity"/>
+
+    </VBox>
+
+    <HBox spacing="10.0">
+        <Button onAction="#enregistrerPDF" styleClass="btn-ajouter">
+            <graphic>
+                <FontIcon iconLiteral="fas-file-pdf" iconSize="13" styleClass="btn-icon"/>
+            </graphic>
+            <text>Enregistrer en PDF</text>
+        </Button>
+        <Button onAction="#fermer" styleClass="btn-annuler">
+            <graphic>
+                <FontIcon iconLiteral="fas-times" iconSize="13" styleClass="btn-icon-annuler"/>
+            </graphic>
+            <text>Fermer</text>
+        </Button>
+    </HBox>
+
+</VBox>
